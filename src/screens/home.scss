@@ -1,0 +1,13 @@
+.home {
+    background-image: url("./../assets/night-sky.webp");
+}
+
+.character {
+    transition: all ease-in-out .3s;
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.75);
+
+    &:hover {
+        transform: translateY(-20px);
+        box-shadow: 0px 0px 35px 0px rgba(255, 255, 255, 0.75);
+    }
+}

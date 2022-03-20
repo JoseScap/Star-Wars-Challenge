@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { CustomHeader } from './../components'
 import useInfinity from '../customHooks/useInfinity'
+import './home.scss'
 
 import { Layout, Empty, Card, Col, Row, Input } from 'antd'
 
@@ -38,7 +40,7 @@ const Home = () => {
   }
 
   return (
-    <Layout className="layout">
+    <Layout className="layout home">
       <CustomHeader />
       <Content style={{ padding: 24, marginTop: 92 }}>
         <Row gutter={16}>
@@ -52,32 +54,42 @@ const Home = () => {
                 <div className='site-card-wrapper'>
                   <Row gutter={16} justify="center" >
                     {
-                      characters.map((c, i) => (
-                        <Col span={6} key={i}>
-                          {
-                            characters.length === i + 1
-                              ? (
-                                <Card
-                                  hoverable
-                                  ref={lastCardElementRef}
-                                  title={c.name}
-                                  bordered={false}
-                                  style={{ width: 240, margin: '0 auto 32px' }}
-                                  cover={<img alt="example" src="https://via.placeholder.com/240x300.png?text=Star+Wars+Challenge.png" />}
-                                />
-                                )
-                              : (
-                                <Card
-                                  hoverable
-                                  title={c.name}
-                                  bordered={false}
-                                  style={{ width: 240, margin: '0 auto 32px' }}
-                                  cover={<img alt="example" src="https://via.placeholder.com/240x300.png?text=Star+Wars+Challenge.png" />}
-                                />
-                                )
-                          }
-                        </Col>
-                      ))
+                      characters.map((c, i) => {
+                        const number = c.url.split('/')[c.url.split('/').length - 2]
+
+                        return (
+                          <Col span={6} key={i}>
+                            {
+                              characters.length === i + 1
+                                ? (
+                                  <Link to={`/character/${number}`}>
+                                    <Card
+                                      className='character'
+                                      hoverable
+                                      ref={lastCardElementRef}
+                                      title={c.name}
+                                      bordered={false}
+                                      style={{ width: 240, margin: '0 auto 32px' }}
+                                      cover={<img alt="example" src="https://via.placeholder.com/240x300.png?text=Star+Wars+Challenge.png" />}
+                                    />
+                                  </Link>
+                                  )
+                                : (
+                                  <Link to={`/character/${number}`}>
+                                    <Card
+                                      className='character'
+                                      hoverable
+                                      title={c.name}
+                                      bordered={false}
+                                      style={{ width: 240, margin: '0 auto 32px' }}
+                                      cover={<img alt="example" src="https://via.placeholder.com/240x300.png?text=Star+Wars+Challenge.png" />}
+                                    />
+                                  </Link>
+                                  )
+                            }
+                          </Col>
+                        )
+                      })
                     }
                   </Row>
                 </div>

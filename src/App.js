@@ -1,15 +1,15 @@
 // App.js
 import * as React from 'react'
 import './App.css'
-import { Layout } from 'antd'
-import { CustomHeader } from './components'
+import { Routes, Route } from 'react-router-dom'
+import Home from './screens/Home'
 
 function App () {
   return (
     <React.Fragment>
-      <Layout className="layout">
-        <CustomHeader />
-      </Layout>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
     </React.Fragment>
   )
 }

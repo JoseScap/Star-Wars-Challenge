@@ -1,5 +1,12 @@
 .home {
-    background-image: url("./../assets/night-sky.webp");
+    background-image: url("./../../assets/background-2.jpeg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover; 
+    
+    &.home--search {
+        color: #FFF;
+    }
 }
 
 .character {

@@ -12,7 +12,37 @@
     margin-top: 92px;
     margin-bottom: 92px;
 
-    .characters--details {
+    .characters--content--card {
+        width: 100%;
+        background-color: rgba(0, 0, 0, .9);
+    }
+
+    .characters--content--details {
         margin-top: 24px;
+        background-color: rgba(0, 0, 0, .9);
+
+        .carousel {
+            width: 100%; 
+            max-width: 640px; 
+            margin: 0 auto
+        }
+
+        .skeleton {
+            width: 220px;
+            margin: 0 auto;
+        }
+
+        .film-list {
+            margin: 0;
+            padding: 0;
+
+            .film-item {
+                margin-bottom: 8px;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
 }

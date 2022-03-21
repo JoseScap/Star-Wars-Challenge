@@ -65,9 +65,9 @@ const Home = () => {
   return (
     <Layout className="layout home">
       <CustomHeader />
-      <Content style={{ padding: 24, marginTop: 92, marginBottom: 92 }}>
-        <Row gutter={16}>
-          <Col span={12} offset={6} style={{ marginBottom: 64 }}>
+      <Content className='home--content' >
+        <Row gutter={16} justify="center">
+          <Col xs={20} sm={20} md={20} lg={16} xl={16} xxl={14} className="home--content--searchbar">
             <Search
               placeholder="Put here a name."
               onSearch={handleSearch}
@@ -98,7 +98,6 @@ const Home = () => {
                                     ref={lastCardElementRef}
                                     title={c.name}
                                     bordered={false}
-                                    style={{ width: 240, margin: '0 auto 32px' }}
                                     cover={<img alt="example" src="https://via.placeholder.com/240x300.png/ddd/000?text=Star+Wars+Challenge.png" />}
                                     onClick={() => handleClickCard(number, c.name)}
                                   />
@@ -109,7 +108,6 @@ const Home = () => {
                                     hoverable
                                     title={c.name}
                                     bordered={false}
-                                    style={{ width: 240, margin: '0 auto 32px' }}
                                     cover={<img alt="example" src="https://via.placeholder.com/240x300.png/ddd/000?text=Star+Wars+Challenge.png" />}
                                     onClick={() => handleClickCard(number, c.name)}
                                   />
@@ -123,7 +121,7 @@ const Home = () => {
                 </div>
               )
             : (
-                <Empty style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <Empty className='empty'>
                   {
                     error
                       ? 'Something went wrong'

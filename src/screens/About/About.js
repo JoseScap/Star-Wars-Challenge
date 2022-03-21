@@ -13,7 +13,7 @@ const About = () => {
       <Content className='about--content'>
         <Row gutter={16} justify="center">
           <Col xs={24} sm={24} md={20} lg={16}>
-            <Card bordered={false} style={{ width: '100%' }}>
+            <Card bordered={false} className="about--content--card">
               <Title level={1}>Star Wars Challenge</Title>
               <Paragraph>
                 Welcome to my Star Wars Application, in this application we can find
@@ -67,7 +67,7 @@ const About = () => {
               <List
                 header={<div>APIs</div>}
                 bordered
-                style={{ marginTop: 32 }}
+                className='tech-list'
                 dataSource={[
                   {
                     tech: 'SWAPI',

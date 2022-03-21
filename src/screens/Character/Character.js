@@ -34,20 +34,20 @@ function Character () {
       <Content className='characters--content'>
         <Row gutter={16} justify="center">
           <Col xs={24} sm={24} md={20} lg={16}>
-            <Card bordered={false} style={{ width: '100%' }}>
+            <Card bordered={false} className="characters--content--card">
               <Breadcrumb>
                 <Breadcrumb.Item><a href='/' onClick={() => dispatcher(resetChanracterProps())}>Home</a></Breadcrumb.Item>
                 <Breadcrumb.Item>Characters</Breadcrumb.Item>
                 <Breadcrumb.Item>{character.name}</Breadcrumb.Item>
               </Breadcrumb>
             </Card>
-            <Card className='characters--details'>
+            <Card className='characters--content--details'>
               <Row justify='center'>
                 <Col xs={24} sm={24} md={24} lg={24}>
                   {
                     character.detail.name
                       ? (
-                          <Carousel autoplay style={{ width: '100%', maxWidth: 640, margin: '0 auto' }}>
+                          <Carousel autoplay className='carousel'>
                             {
                               character.detail.filmNames.map((f, i) => (
                                 <div key={i}>
@@ -60,7 +60,7 @@ function Character () {
                           </Carousel>
                         )
                       : (
-                        <Skeleton.Image style={{ width: 640, height: 480, margin: '0 auto' }}/>
+                          <Skeleton.Image className='skeleton'/>
                         )
                   }
                 </Col>
@@ -80,9 +80,9 @@ function Character () {
                           <Descriptions.Item label="Skin Color">{character.detail.skin_color}</Descriptions.Item>
                           <Descriptions.Item label="Eye Color">{character.detail.eye_color}</Descriptions.Item>
                           <Descriptions.Item label="Films">
-                            <ul style={{ margin: 0, padding: 0 }}>
+                            <ul className='film-list'>
                               {
-                                character.detail.filmNames.map((f, i) => <li key={i} style={{ marginBottom: 8 }}>{f}</li>)
+                                character.detail.filmNames.map((f, i) => <li key={i} className="film-item">{f}</li>)
                               }
                             </ul>
                           </Descriptions.Item>

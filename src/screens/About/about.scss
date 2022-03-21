@@ -11,4 +11,14 @@
     padding: 24px;
     margin-top: 92px;
     margin-bottom: 92px;
+
+    .about--content--card {
+        width: 100%;
+        box-shadow: 0px 0px 45px 0px rgba(255, 255, 255, 0.6);
+        background: rgba(0, 0, 0, 0.85);
+
+        .tech-list {
+            margin-top: 32px
+        }
+    }
 }

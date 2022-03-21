@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { CustomFooter, CustomHeader } from '../../components'
-import { Layout, Breadcrumb, Col, Row, Card, Skeleton, Descriptions, Carousel, Image } from 'antd'
+import { Layout, Breadcrumb, Col, Row, Card, Skeleton, Descriptions, Carousel, Image, Divider } from 'antd'
 import './character.scss'
 import { getCharacterData, resetChanracterProps } from './../../actions/characterActions'
 import { useNavigate } from 'react-router-dom'
@@ -33,8 +33,8 @@ function Character () {
       <CustomHeader />
       <Content className='characters--content'>
         <Row gutter={16} justify="center">
-          <Col span={16}>
-            <Card bordered={false}>
+          <Col xs={24} sm={24} md={20} lg={16}>
+            <Card bordered={false} style={{ width: '100%' }}>
               <Breadcrumb>
                 <Breadcrumb.Item><a href='/' onClick={() => dispatcher(resetChanracterProps())}>Home</a></Breadcrumb.Item>
                 <Breadcrumb.Item>Characters</Breadcrumb.Item>
@@ -43,16 +43,15 @@ function Character () {
             </Card>
             <Card className='characters--details'>
               <Row justify='center'>
-                <Col>
+                <Col xs={24} sm={24} md={24} lg={24}>
                   {
                     character.detail.name
                       ? (
-                          <Carousel autoplay style={{ width: 640, height: 480, margin: '0 auto' }}>
+                          <Carousel autoplay style={{ width: '100%', maxWidth: 640, margin: '0 auto' }}>
                             {
                               character.detail.filmNames.map((f, i) => (
                                 <div key={i}>
                                   <Image
-                                    width={640}
                                     src={`https://via.placeholder.com/640x480.png/ddd/000?text=${character.detail.name.replaceAll(' ', '+')}+in+${f.replaceAll(' ', '+')}.png`}
                                   />
                                 </div>
@@ -66,12 +65,13 @@ function Character () {
                   }
                 </Col>
               </Row>
+              <Divider />
               <Row gutter={16} justify="center">
-                <Col span={18}>
+                <Col xs={24} sm={24} md={24} lg={24}>
                 {
                   character.detail.name
                     ? (
-                        <Descriptions title="Character Info" bordered>
+                        <Descriptions title="Character Info" bordered column={{ xxl: 3, xl: 3, lg: 3, md: 2, sm: 1, xs: 1 }}>
                           <Descriptions.Item label="Name">{character.detail.name}</Descriptions.Item>
                           <Descriptions.Item label="Birth Year">{character.detail.birth_year}</Descriptions.Item>
                           <Descriptions.Item label="Gender">{character.detail.gender}</Descriptions.Item>
@@ -80,11 +80,11 @@ function Character () {
                           <Descriptions.Item label="Skin Color">{character.detail.skin_color}</Descriptions.Item>
                           <Descriptions.Item label="Eye Color">{character.detail.eye_color}</Descriptions.Item>
                           <Descriptions.Item label="Films">
-                            {
-                              character.detail.filmNames.map((f, i) => <ul key={i}>
-                                  <li>{f}</li>
-                                </ul>)
-                            }
+                            <ul style={{ margin: 0, padding: 0 }}>
+                              {
+                                character.detail.filmNames.map((f, i) => <li key={i} style={{ marginBottom: 8 }}>{f}</li>)
+                              }
+                            </ul>
                           </Descriptions.Item>
                         </Descriptions>
                       )
